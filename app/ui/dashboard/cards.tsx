@@ -4,7 +4,9 @@ import {
   UserGroupIcon,
   InboxIcon,
 } from '@heroicons/react/24/outline';
-import { lusitana } from '@/app/ui/fonts';
+import { roboto_slab } from '@/app/ui/fonts';
+import { inter } from '@/app/ui/fonts';
+
 
 const iconMap = {
   collected: BanknotesIcon,
@@ -16,7 +18,7 @@ const iconMap = {
 export default async function CardWrapper() {
   return (
     <>
-      {/* NOTE: comment in this code when you get to this point in the course */}
+      {/* NOTA: Comenta este código cuando llegues a este punto en el curso */}
 
       {/* <Card title="Collected" value={totalPaidInvoices} type="collected" />
       <Card title="Pending" value={totalPendingInvoices} type="pending" />
@@ -41,15 +43,36 @@ export function Card({
 }) {
   const Icon = iconMap[type];
 
+  // Función auxiliar para obtener el color de fondo y el color de texto según el tipo de tarjeta
+  const getColor = (type: string) => {
+    let bgColor = 'bg-gray-900';
+    let textColor = 'text-white';
+    if (type === 'collected') {
+      bgColor = 'bg-blue-600';
+      textColor = 'text-blue-600';
+    } else if (type === 'customers') {
+      bgColor = 'bg-yellow-600';
+      textColor = 'text-yellow-600';
+    } else if (type === 'pending') {
+      bgColor = 'bg-red-600';
+      textColor = 'text-red-600';
+    } else if (type === 'invoices') {
+      bgColor = 'bg-green-600';
+      textColor = 'text-green-600';
+    }
+    return { bgColor, textColor };
+  };
+
+  const { bgColor, textColor } = getColor(type);
+
   return (
-    <div className="rounded-xl bg-gray-50 p-2 shadow-sm">
+    <div className={`rounded-xl ${bgColor} p-2 shadow-md`}>
       <div className="flex p-4">
-        {Icon ? <Icon className="h-5 w-5 text-gray-700" /> : null}
-        <h3 className="ml-2 text-sm font-medium">{title}</h3>
+        {Icon ? <Icon className="h-5 w-5 text-white" /> : null}
+        <h3 className={`ml-2 text-sm font-medium`}>{title}</h3>
       </div>
       <p
-        className={`${lusitana.className}
-          truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
+        className={`${roboto_slab.className} ${textColor} truncate rounded-xl bg-white px-4 py-8 text-center text-2xl`}
       >
         {value}
       </p>
