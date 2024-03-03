@@ -6,41 +6,35 @@ import Image from 'next/image';
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col p-6">
-      <div className="flex h-20 shrink-0 items-end rounded-lg bg-yellow-400 p-4 md:h-52">
+    <main className="flex min-h-screen flex-col p-6 bg-gradient-to-b from-gray-900 to-gray-800">
+      <div className="flex h-20 my-8 items-center justify-center bg-gray-800 rounded-t-lg text-white">
         <AndesLogo />
+        <p className="text-[44px] ml-8">Andes Engineering Solutions</p>
       </div>
-      <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
-        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
-          <div
-            className="h-0 w-0 border-b-[30px] border-l-[20px] border-r-[20px] border-b-black border-l-transparent border-r-transparent"
-          />
-          <p className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}>
-            <strong>Welcome to Andes Engineering Solutions.</strong> We provide engineering services to the major mining companies in Chile.
-          </p>
-          <Link
-            href="/login"
-            className="flex items-center gap-5 self-start rounded-lg bg-yellow-400 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-yellow-300 md:text-base"
-          >
-            <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
-          </Link>
-        </div>
-        <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
-          {/* Add Hero Images Here */}
+      <div className="flex-grow flex flex-col-reverse mt-8 md:flex-row">
+        <div className="flex justify-center items-center md:w-3/5">
           <Image
             src="/hero-desktop.png"
             width={1000}
             height={760}
-            className="hidden md:block"
+            className="rounded-lg shadow-xl"
             alt="Screenshots of the dashboard project showing desktop version"
           />
-          <Image
-            src="/hero-mobile.png"
-            width={560}
-            height={620}
-            className="md:hidden block"
-            alt="Screenshots of the dashboard project showing mobile version"
-          />
+        </div>
+        <div className="bg-gray-900 rounded-b-lg shadow-lg p-8 flex flex-col justify-center md:w-2/5 md:px-12">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Welcome to Andes Engineering Solutions
+          </h1>
+          <p className="text-lg text-gray-300 mb-8">
+            We specialize in providing innovative engineering solutions to the mining industry in Chile.
+          </p>
+          <Link
+            href="/login"
+            className="flex items-center justify-center bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold py-3 px-6 rounded-lg transition duration-300 md:text-lg"
+          >
+            <span>Log in</span>
+            <ArrowRightIcon className="w-5 ml-2" />
+          </Link>
         </div>
       </div>
     </main>
