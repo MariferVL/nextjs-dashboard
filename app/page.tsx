@@ -2,7 +2,7 @@ import AndesLogo from '@/app/ui/andes-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { roboto_slab } from '@/app/ui/fonts';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 
 export default function Page() {
   return (
