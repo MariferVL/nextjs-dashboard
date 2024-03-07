@@ -1,6 +1,6 @@
 // import { GlobeAltIcon } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export default function AndesLogo() {
   return (
@@ -9,11 +9,14 @@ export default function AndesLogo() {
     >
       {/* <GlobeAltIcon className="h-12 w-12 rotate-[15deg]" /> */}
       <Image
-            src="/andes-logo.png"
-            width={160}
-            height={160}
-            alt="Company Logo"
-          />
+        src="/andes-logo.png"
+        width={160}
+        height={160}
+        alt="Company Logo"
+        style={{
+          maxWidth: "100%",
+          height: "auto"
+        }} />
     </div>
   );
 }

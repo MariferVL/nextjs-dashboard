@@ -1,6 +1,6 @@
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { roboto_slab } from '@/app/ui/fonts';
 import { LatestInvoice } from '@/app/lib/definitions';
 
@@ -27,10 +27,12 @@ export default async function LatestInvoices({
                 <Image
                   src={invoice.image_url}
                   alt={`${invoice.name}'s profile picture`}
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition="center"
-                />
+                  fill
+                  sizes="100vw"
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "center"
+                  }} />
               </div>
               <div className="min-w-0">
                 <p className="text-sm font-semibold text-white truncate">{invoice.name}</p>

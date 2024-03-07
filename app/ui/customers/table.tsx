@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { lusitana } from '@/app/ui/fonts';
 import Search from '@/app/ui/search';
 import {
@@ -37,7 +37,10 @@ export default async function CustomersTable({
                               alt={`${customer.name}'s profile picture`}
                               width={28}
                               height={28}
-                            />
+                              style={{
+                                maxWidth: "100%",
+                                height: "auto"
+                              }} />
                             <p>{customer.name}</p>
                           </div>
                         </div>
@@ -94,7 +97,10 @@ export default async function CustomersTable({
                             alt={`${customer.name}'s profile picture`}
                             width={28}
                             height={28}
-                          />
+                            style={{
+                              maxWidth: "100%",
+                              height: "auto"
+                            }} />
                           <p>{customer.name}</p>
                         </div>
                       </td>

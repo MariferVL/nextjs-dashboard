@@ -2,7 +2,7 @@ import AndesLogo from '@/app/ui/andes-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { roboto_slab } from '@/app/ui/fonts';
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 export default function Page() {
   return (
@@ -19,7 +19,10 @@ export default function Page() {
             height={600}
             className="rounded-lg shadow-xl"
             alt="Screenshots of the dashboard project showing desktop version"
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </div>
         <div className="bg-gray-900 rounded-b-lg shadow-lg p-8 flex flex-col justify-center md:w-2/5 md:px-12">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
