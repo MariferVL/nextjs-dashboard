@@ -6,6 +6,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { roboto_slab } from '@/app/ui/fonts';
 import { inter } from '@/app/ui/fonts';
+import { fetchCardData } from '@/app/lib/data';
 
 
 const iconMap = {
@@ -16,18 +17,23 @@ const iconMap = {
 };
 
 export default async function CardWrapper() {
+  const {
+    numberOfInvoices,
+    numberOfCustomers,
+    totalPaidInvoices,
+    totalPendingInvoices,
+  } = await fetchCardData();
+  
   return (
     <>
-      {/* NOTA: Comenta este código cuando llegues a este punto en el curso */}
-
-      {/* <Card title="Collected" value={totalPaidInvoices} type="collected" />
+      <Card title="Collected" value={totalPaidInvoices} type="collected" />
       <Card title="Pending" value={totalPendingInvoices} type="pending" />
       <Card title="Total Invoices" value={numberOfInvoices} type="invoices" />
       <Card
         title="Total Customers"
         value={numberOfCustomers}
         type="customers"
-      /> */}
+      />
     </>
   );
 }
